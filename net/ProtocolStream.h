@@ -1,6 +1,5 @@
 /**
  *  一个强大的协议类, protocolstream.h
- *  zhangyl 2017.05.27
  */
 
 #ifndef __PROTOCOL_STREAM_H__

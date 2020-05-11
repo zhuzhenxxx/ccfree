@@ -1,6 +1,5 @@
 /**
  * @desc:   异步日志类，AsyncLog.cpp
- * @author: zhangyl
  * @date:   2019.04.13
  */
 #include "AsyncLog.h"

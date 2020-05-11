@@ -369,7 +369,6 @@ void TcpConnection::handleWrite()
             // {
             //   shutdownInLoop();
             // }
-            //added by zhangyl 2019.05.06
             handleClose();
         }
     }

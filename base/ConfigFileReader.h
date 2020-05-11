@@ -1,6 +1,5 @@
 /** 
  *  简单的配置文件读取类，ConfigFileReader.h
- *  zhangyl 2017.05.27
  */
 #ifndef __CONFIG_FILE_READER_H__
 #define __CONFIG_FILE_READER_H__

@@ -1,7 +1,5 @@
 /** 
  * @desc:   异步日志类，AsyncLog.h
- * @author: zhangyl
- * @date:   2019.04.13
  */
 
 #ifndef __ASYNC_LOG_H__

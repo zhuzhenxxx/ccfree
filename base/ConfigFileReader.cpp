@@ -1,6 +1,5 @@
 /**
  *  简单的配置文件读取类，ConfigFileReader.cpp
- *  zhangyl 2017.05.27
  */
 #include "ConfigFileReader.h"
 #include <stdio.h>  //for snprintf
