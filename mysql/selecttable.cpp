@@ -1,7 +1,3 @@
-/*
- *  程序名：selecttable.cpp，此程序演示freecplus框架操作MySQL数据库（查询表中的记录）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_mysql.h"   // freecplus框架操作MySQL的头文件。
 
 // 定义用于超女信息的结构，与表中的字段对应。

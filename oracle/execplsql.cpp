@@ -1,13 +1,3 @@
-/*
- *  程序名：execplsql.cpp，此程序演示freecplus框架操作Oracle数据库（执行PL/SQL过程）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
- *  说说我个人的看法，我从不在Oracle数据库中创建PL/SQL过程，也很少使用触发器，原因如下：
- *  1、在Oracle数据库中创建PL/SQL过程，程序的调试很麻烦；
- *  2、维护工作很麻烦，因为维护人员要花时间去了解数据库中的存储过程；
- *  3、采用freecplus框架操作Oracle已经是非常简单，没必要去折腾存储过程；
- *  4、PL/SQL过程可移植性不好，如果换成mysql或其它数据库，比较麻烦。
- *  还有，我在C/C++程序中很少用复杂的PL/SQL过程，因为复杂的PL/SQL调试麻烦。
-*/
 #include "_ooci.h"   // freecplus框架操作Oracle的头文件。
 
 int main(int argc,char *argv[])

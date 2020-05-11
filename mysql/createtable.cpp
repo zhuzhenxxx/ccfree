@@ -1,7 +1,3 @@
-/*
- *  程序名：createtable.cpp，此程序演示freecplus框架操作MySQL数据库（创建表）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_mysql.h"   // freecplus框架操作MySQL的头文件。
 
 int main(int argc,char *argv[])

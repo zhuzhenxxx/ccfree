@@ -1,7 +1,3 @@
-/*
- *  程序名：counttable.cpp，此程序演示freecplus框架操作Oracle数据库（查询表中的记录数）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_ooci.h"   // freecplus框架操作Oracle的头文件。
 
 int main(int argc,char *argv[])

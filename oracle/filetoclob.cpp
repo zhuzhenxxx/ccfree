@@ -1,8 +1,3 @@
-/*
- *  程序名：filetoclob.cpp，此程序演示freecplus框架操作Oracle数据库。
- *  把当前目录中的memo_in.txt文件写入Oracle的CLOB字段中。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_ooci.h"   // freecplus框架操作Oracle的头文件。
 
 int main(int argc,char *argv[])

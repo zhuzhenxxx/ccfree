@@ -1,7 +1,3 @@
-/*
- *  程序名：deletetable.cpp，此程序演示freecplus框架操作Oracle数据库（删除表中的记录）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_ooci.h"   // freecplus框架操作Oracle的头文件。
 
 int main(int argc,char *argv[])

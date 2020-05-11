@@ -1,7 +1,3 @@
-/*
- *  程序名：inserttable.cpp，此程序演示freecplus框架操作PostgreSQL数据库（向表中插入5条记录）。
- *  作者：C语言技术网(www.freecplus.net) 日期：20190525
-*/
 #include "_postgresql.h"   // freecplus框架操作PostgreSQL的头文件。
 
 // 定义用于超女信息的结构，与表中的字段对应。
