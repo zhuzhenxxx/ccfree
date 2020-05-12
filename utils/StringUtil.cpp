@@ -1,6 +1,5 @@
 /**
  * 字符串操作工具类, StringUtil.cpp
- * zhangyl 2018.03.09
  */
 #include "StringUtil.h"
 #include <string.h>

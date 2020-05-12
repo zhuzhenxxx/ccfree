@@ -1,6 +1,5 @@
 /**
  * URL±à½âÂë¹¤¾ß£¬URLEncodeUtil.h
- * zhangyl 2018.05.16
  */
 #ifndef __URLENCODE_UTIL_H__
 #define __URLENCODE_UTIL_H__

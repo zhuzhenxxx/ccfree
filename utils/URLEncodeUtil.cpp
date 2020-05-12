@@ -1,6 +1,5 @@
 /**
  * URL±à½âÂë¹¤¾ß£¬URLEncodeUtil.cpp
- * zhangyl 2018.05.16
  */
 #include "URLEncodeUtil.h"
 

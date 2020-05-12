@@ -1,6 +1,5 @@
 /**
  * 字符串操作工具类, StringUtil.h
- * zhangyl 2018.03.09
  */
 #ifndef __STRING_UTIL_H__
 #define __STRING_UTIL_H__
