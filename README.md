@@ -13,18 +13,6 @@ TcpConnection  - fd
 Session 不属于网络框架的。
 
 
-
-### 从Session到Connection再到Channel后Socket
-
-网络框架 Connection、Channel、Socket
-
-TcpConnection - Channel - fd
-
-TcpConnection  - fd
-
-Session 不属于网络框架的。
-
-
 ### 收发数据正确的做法
 
 收，监听可读事件，事件触发后收取；
