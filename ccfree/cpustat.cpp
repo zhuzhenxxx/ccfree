@@ -3,34 +3,39 @@
 void CallQuit(int sig);
 
 char strLogPath[201]; // 日志文件目录
+char strTmpPath[201]; // 进程活动信息文件目录
+char strIDCConnStr[201]; // 数据库连接参数
+char strAlarmValue[11];
 double dusep=0.00;   // CPU的利用率
+
+void Trim(char *in_string);                                                                                                                                                                                                     ;;
 
 class CCPUSTAT
 {
 public:
-  char   m_hostname[31];
   struct st_CPUSTAT
   {
     char cpu[11];
-    UINT user;
-    UINT system;
-    UINT nice;
+    int user;
+    int system;
+    int nice;
     char idle[16];
-    UINT iowait;
-    UINT irq;
-    UINT softirq;
+    int iowait;
+    int irq;
+    int softirq;
   };
 
   st_CPUSTAT m_stCPUSTAT;
   vector<struct st_CPUSTAT> m_vCPUSTAT;
 
+
   CCPUSTAT();
  ~CCPUSTAT();
 
-  void BindConnLog(connection *in_conn,CLogFile *in_logfile);
-
   // 获取CPU报告
-  BOOL GETCPUSTAT();
+  bool GETCPUSTAT();
+
+
 };
 
 CLogFile       logfile;
@@ -41,9 +46,10 @@ int main(int argc,char *argv[])
   if (argc != 2)
   {
     printf("\n");
-    printf("Using:./cpustat \n");
+    printf("Using:./cpu \n");
 
-    printf("Example:/htidc/htidc/bin/cpustat\n\n");
+    printf(" /home/zhuzx/ccfree/ccfree/cpu 50\n\n");
+    printf("此程序用于把本服务器的CPU使用率信息记录在文件，它运行在需要监控的服务器上。\n");
 
     return -1;
   }
@@ -53,21 +59,15 @@ int main(int argc,char *argv[])
   // 但请不要用 "kill -9 +进程号" 强行终止
   CloseIOAndSignal(); signal(SIGINT,CallQuit); signal(SIGTERM,CallQuit);
 
-  if (logfile.Open("/tmp/log/cpustat.log","a+") == FALSE)
+  if (logfile.Open("/tmp/ccfree/log/cpustat.log","a+") == false)
   {
-    printf("logfile.Open(/tmp/log/cpustat.log) failed.\n"); return -1;
+    printf("logfile.Open(/tmp/ccfree/log/cpustat.log) failed.\n"); return -1;
   }
 
   // 获取CPU报告
-  if (CPUSTAT.GETCPUSTAT() == FALSE)
+  if (CPUSTAT.GETCPUSTAT() == false)
   {
     logfile.Write("CPUSTAT.GETCPUSTAT failed.\n"); return -1;
-  }
-
-  // 把CPU报告更新到表中
-  if (CPUSTAT.UptCPUSTAT() != 0)
-  {
-    logfile.Write("CPUSTAT.UptCPUSTAT failed.\n"); return -1;
   }
 
   return 0;
@@ -87,9 +87,6 @@ void CallQuit(int sig)
 
 CCPUSTAT::CCPUSTAT()
 {
-  memset(m_hostname,0,sizeof(m_hostname));
-  memset(m_AlarmSTR,0,sizeof(m_AlarmSTR));
-  m_conn=0; m_logfile=0;
 }
 
 CCPUSTAT::~CCPUSTAT()
@@ -98,13 +95,13 @@ CCPUSTAT::~CCPUSTAT()
 }
 
 
-BOOL CCPUSTAT::GETCPUSTAT()
+bool CCPUSTAT::GETCPUSTAT()
 {
   FILE *fp=0;
 
   if ( (fp=FOPEN("/proc/stat","r")) == NULL )
   {
-    logfile.Write("open /proc/stat failed.\n"); return FALSE;
+    logfile.Write("open /proc/stat failed.\n"); return false;
   }
 
   m_vCPUSTAT.clear();
@@ -113,12 +110,12 @@ BOOL CCPUSTAT::GETCPUSTAT()
 
   CCmdStr CmdStr;
 
-  while (TRUE)
+  while (true)
   {
     memset(strLine,0,sizeof(strLine));
     memset(&m_stCPUSTAT,0,sizeof(m_stCPUSTAT));
 
-    if (FGETS(strLine,500,fp) == FALSE) break;
+    if (FGETS(fp,strLine,500) == false) break;
 
     // 删除字符串前后的空格
     Trim(strLine);
@@ -140,22 +137,19 @@ BOOL CCPUSTAT::GETCPUSTAT()
     // 把CPU的名称转换成小写
     ToLower(m_stCPUSTAT.cpu);
 
-    if (strstr(m_stCPUSTAT.cpu,"cpu") == 0) continue;
+    if (strcmp(m_stCPUSTAT.cpu,"cpu") != 0) continue;
 
     m_vCPUSTAT.push_back(m_stCPUSTAT);
   }
 
   fclose(fp);
 
-  return TRUE;
+  return true;
 }
-// 关闭全部的信号和输入输出
-void CloseIOAndSignal()
-{
-  int ii=0;
 
-  for (ii=0;ii<100;ii++)
-  {
-    signal(ii,SIG_IGN); close(ii);
-  }
+
+void Trim(char *in_string)
+{
+  DeleteLChar(in_string,' ');
+  DeleteRChar(in_string,' ');
 }
