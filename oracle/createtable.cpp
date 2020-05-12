@@ -1,4 +1,4 @@
-#include "_ooci.h"   // freecplus框架操作Oracle的头文件。
+#include "_ooci.h"   // ccfree框架操作Oracle的头文件。
 
 int main(int argc,char *argv[])
 {

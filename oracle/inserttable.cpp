@@ -1,4 +1,4 @@
-#include "_ooci.h"   // freecplus框架操作Oracle的头文件。
+#include "_ooci.h"   // ccfree框架操作Oracle的头文件。
 
 // 定义用于超女信息的结构，与表中的字段对应。
 struct st_girls
