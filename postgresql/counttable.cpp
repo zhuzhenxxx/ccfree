@@ -1,4 +1,4 @@
-#include "_postgresql.h"   // freecplus框架操作PostgreSQL的头文件。
+#include "_postgresql.h"   // ccfree框架操作PostgreSQL的头文件。
 
 int main(int argc,char *argv[])
 {
