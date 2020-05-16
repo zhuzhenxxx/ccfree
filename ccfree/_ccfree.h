@@ -666,5 +666,6 @@ bool SendFile(int sockfd,struct st_fileinfo *stfileinfo,CLogFile *logfile=0);
 bool RecvFile(int sockfd,struct st_fileinfo *stfileinfo,CLogFile *logfile=0);
 ///////////////////////////////////// /////////////////////////////////////
 
+std::string exec(const char* cmd);
 
 #endif
