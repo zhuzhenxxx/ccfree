@@ -326,7 +326,7 @@ void PickNumber(const char *src,char *dest,const bool bsigned,const bool bdot)
 }
 
 // 正则表达式，判断一个字符串是否匹配另一个字符串。
-// str：需要判断的字符串，精确表示的字符串，如文件名"freecplus.cpp"。
+// str：需要判断的字符串，精确表示的字符串，如文件名"ccfree.cpp"。
 // rules：匹配规则表达式，用星号"*"表示任意字符串，多个字符串之间用半角的逗号分隔，如"*.h,*.cpp"。
 // 注意，str参数不支持"*"，rules参数支持"*"，函数在判断str是否匹配rules的时候，会忽略字母的大小写。
 bool MatchStr(const string str,const string rules)

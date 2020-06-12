@@ -103,7 +103,7 @@ void UpdateStr(char *str,const char *str1,const char *str2,const bool bloop=true
 void PickNumber(const char *src,char *dest,const bool bsigned,const bool bdot);
 
 // 正则表达式，判断一个字符串是否匹配另一个字符串。
-// str：需要判断的字符串，是精确表示的，如文件名"freecplus.cpp"。
+// str：需要判断的字符串，是精确表示的，如文件名"ccfree.cpp"。
 // rules：匹配规则的表达式，用星号"*"代表任意字符串，多个表达式之间用半角的逗号分隔，如"*.h,*.cpp"。
 // 注意：1）str参数不支持"*"，rules参数支持"*"；2）函数在判断str是否匹配rules的时候，会忽略字母的大小写。
 bool MatchStr(const string str,const string rules);
@@ -159,8 +159,8 @@ public:
 ///////////////////////////////////// /////////////////////////////////////
 // 解析xml格式字符串的函数族。
 // xml格式的字符串的内容如下：
-// <filename>/tmp/freecplus.h</filename><mtime>2020-01-01 12:20:35</mtime><size>18348</size>
-// <filename>/tmp/freecplus.cpp</filename><mtime>2020-01-01 10:10:15</mtime><size>50945</size>
+// <filename>/tmp/ccfree.h</filename><mtime>2020-01-01 12:20:35</mtime><size>18348</size>
+// <filename>/tmp/ccfree.cpp</filename><mtime>2020-01-01 10:10:15</mtime><size>50945</size>
 // xmlbuffer：待解析的xml格式字符串。
 // fieldname：字段的标签名。
 // value：传入变量的地址，用于存放字段内容，支持bool、int、insigned int、long、unsigned long、double和char[]。
@@ -274,7 +274,7 @@ public:
 
   // 打开目录，获取目录中的文件列表信息，存放于m_vFileName容器中。
   // in_DirName，待打开的目录名，采用绝对路径，如/tmp/root。
-  // in_MatchStr，待获取文件名的匹配规则，不匹配的文件被忽略，具体请参见freecplus框架的MatchStr函数。
+  // in_MatchStr，待获取文件名的匹配规则，不匹配的文件被忽略，具体请参见ccfree框架的MatchStr函数。
   // in_MaxCount，获取文件的最大数量，缺省值为10000个。
   // bAndChild，是否打开各级子目录，缺省值为false-不打开子目录。
   // bSort，是否对获取到的文件列表（即m_vFileName容器中的内容）进行排序，缺省值为false-不排序。
@@ -637,7 +637,7 @@ bool Writen(const int sockfd,const char *buffer,const size_t n);
 ///////////////////////////////////// /////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////////////////
-// 以下代码用于文件传输系统，不属于freecplus框架。
+// 以下代码用于文件传输系统，不属于ccfree框架。
 
 // 关闭全部的信号和输入输出
 void CloseIOAndSignal();
